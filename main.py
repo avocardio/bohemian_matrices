@@ -61,7 +61,7 @@ def plot_eigenvalues(matrix_size, config, num_matrices, cmap='bone'):
         replacements = random.randint(1, 10)
         matrix_size = random.randint(3, 10)
         prob_density = random.choice([0.1, 0.4, 0.7])
-        sample_choice = random.choice([[-1, 0, 1], [-1, 0, 1, 2, 3], [-1, 0, 1, 2, 3, 4, 5]])
+        sample_choice = random.choice([[-1, 0, 1], [-1, 0, 1, 2, 3], [-0.5, 0, 0.5]])
 
         if replacements > matrix_size / 2:
             replacements = int(matrix_size / 2)
