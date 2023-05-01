@@ -3,7 +3,7 @@ A place for experimenting with Bohemian Matrices.
 
 ## ?
 
-This code generates and visualizes the eigenvalues of Bohemian matrices. Bohemian matrices are matrices with entries from a discrete set of integers. The visualization of their eigenvalues often creates beautiful patterns and, many people don't know this, but they hold the key to the universe. More here: [here]{http://www.bohemianmatrices.com/}.
+This code generates and visualizes the eigenvalues of Bohemian matrices. Bohemian matrices are matrices with entries from a discrete set of integers. The visualization of their eigenvalues often creates beautiful patterns and, many people don't know this, but they hold the key to the universe. More here: http://www.bohemianmatrices.com/.
 
 ## Usage
 
