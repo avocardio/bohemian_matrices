@@ -112,7 +112,7 @@ if __name__ == '__main__':
         if args.random:
             if args.cmap is not None:
                 cmap = args.cmap
-            plot_eigenvalues(args.size, 'random', args.num_matrices, cmap=cmap)
+            plot_eigenvalues(args.size, 'random', args.num_matrices, cmap=args.cmap)
         else:
             if args.cmap is not None:
                 cmap = args.cmap
