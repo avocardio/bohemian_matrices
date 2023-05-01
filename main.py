@@ -5,7 +5,7 @@ from tqdm import tqdm
 import random
 import os
 
-def generate_matrix(config, size, distribution, distribution_range, replacements, prob_density, sample_choice):
+def generate_matrix(config, size, distribution, distribution_range, replacements, prob_density, sample_choice, loc):
 
     if config == 'golfball':
         return np.random.choice([-20,-1,0,1,20], size=(size, size))
@@ -33,10 +33,6 @@ def generate_matrix(config, size, distribution, distribution_range, replacements
                 if random.random() < prob_density:
                     mat[i, j] = random.choice(sample_choice)
 
-        if replacements > size / 2:
-            replacements = int(size / 2)
-
-        loc = [np.random.randint(0,size - replacements), np.random.randint(0,size - replacements)]
         for i in range(replacements):
             # Replace a random value in the matrix with a value from the distribution
             if distribution == 'uniform':
@@ -66,12 +62,17 @@ def plot_eigenvalues(matrix_size, config, num_matrices, cmap='bone'):
         matrix_size = random.randint(3, 10)
         prob_density = random.choice([0.1, 0.4, 0.7])
         sample_choice = random.choice([[-1, 0, 1], [-1, 0, 1, 2, 3], [-1, 0, 1, 2, 3, 4, 5]])
+
+        if replacements > matrix_size / 2:
+            replacements = int(matrix_size / 2)
+
+        loc = [np.random.randint(0,matrix_size - replacements), np.random.randint(0,matrix_size - replacements)]
         cmap = random.choice(['jet', 'bone', 'viridis', 'plasma', 'inferno', 'magma', 'cividis'])
 
     L = np.zeros((num_matrices, matrix_size), dtype=np.complex128)
 
     for i in tqdm(range(num_matrices)):
-        A = generate_matrix(config, matrix_size, distribution, distribution_range, replacements, prob_density, sample_choice)
+        A = generate_matrix(config, matrix_size, distribution, distribution_range, replacements, prob_density, sample_choice, loc)
         L[i,:] = np.linalg.eigvals(A)
     L = L.flatten()
 
